@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'pl.krzysiekigry'
+version = '1.0'
+description = 'A simple yet powerful Java library for creating and managing leaderboards using Redis'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+    withJavadocJar()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
+    implementation group: 'redis.clients', name: 'jedis', version: '5.2.0'
+
+    compileOnly group: 'org.jetbrains', name: 'annotations', version: '23.0.0'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
